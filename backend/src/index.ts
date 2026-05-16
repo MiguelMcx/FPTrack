@@ -10,6 +10,8 @@ app.use(express.json())
 
 app.use('/api/empresas', empresaRoutes)
 
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })
