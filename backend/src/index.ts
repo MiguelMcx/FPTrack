@@ -1,16 +1,19 @@
 import express from 'express'
-import { PrismaClient } from "../generated/prisma/client";
 
+import empresaRoutes from './routes/empresa.route'
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.json({ status: 'ok', message: 'FPTrack API funcionando' })
-})
+
+app.use('/api/empresas', empresaRoutes)
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`)
+  console.log(`Server is running on port ${PORT}`)
+})
+
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  res.status(500).json({ error: err.message })
 })
