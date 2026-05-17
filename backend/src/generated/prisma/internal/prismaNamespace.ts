@@ -384,7 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Empresa: 'Empresa'
+  Empresa: 'Empresa',
+  Alumno: 'Alumno'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +401,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "empresa"
+    modelProps: "empresa" | "alumno"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +479,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Alumno: {
+      payload: Prisma.$AlumnoPayload<ExtArgs>
+      fields: Prisma.AlumnoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AlumnoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AlumnoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        findFirst: {
+          args: Prisma.AlumnoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AlumnoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        findMany: {
+          args: Prisma.AlumnoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>[]
+        }
+        create: {
+          args: Prisma.AlumnoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        createMany: {
+          args: Prisma.AlumnoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AlumnoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>[]
+        }
+        delete: {
+          args: Prisma.AlumnoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        update: {
+          args: Prisma.AlumnoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        deleteMany: {
+          args: Prisma.AlumnoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AlumnoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AlumnoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>[]
+        }
+        upsert: {
+          args: Prisma.AlumnoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlumnoPayload>
+        }
+        aggregate: {
+          args: Prisma.AlumnoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAlumno>
+        }
+        groupBy: {
+          args: Prisma.AlumnoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AlumnoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AlumnoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AlumnoCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -528,6 +603,18 @@ export const EmpresaScalarFieldEnum = {
 } as const
 
 export type EmpresaScalarFieldEnum = (typeof EmpresaScalarFieldEnum)[keyof typeof EmpresaScalarFieldEnum]
+
+
+export const AlumnoScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  email: 'email',
+  telefono: 'telefono',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
+} as const
+
+export type AlumnoScalarFieldEnum = (typeof AlumnoScalarFieldEnum)[keyof typeof AlumnoScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -726,6 +813,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   empresa?: Prisma.EmpresaOmit
+  alumno?: Prisma.AlumnoOmit
 }
 
 /* Types for Logging */

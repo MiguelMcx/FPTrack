@@ -2,6 +2,8 @@ import express from 'express'
 
 import empresaRoutes from './routes/empresa.route'
 
+import alumnoRoutes from './routes/alumno.route'
+
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -9,6 +11,8 @@ app.use(express.json())
 
 
 app.use('/api/empresas', empresaRoutes)
+
+app.use('/api/alumnos', alumnoRoutes)
 
 
 
