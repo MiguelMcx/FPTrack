@@ -1,0 +1,14 @@
+-- CreateTable
+CREATE TABLE "Alumno" (
+    "id" SERIAL NOT NULL,
+    "nombre" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "telefono" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updateAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Alumno_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Alumno_email_key" ON "Alumno"("email");

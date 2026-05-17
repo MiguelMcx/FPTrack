@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(tree \"c:\\\\Users\\\\Miguel\\\\Documents\\\\fptrack\\\\backend\" -L 3 -I \"node_modules\" 2>$null)",
+      "PowerShell(head -80)",
+      "PowerShell(tree \"c:\\\\Users\\\\Miguel\\\\Documents\\\\fptrack\\\\backend\" -L 3 -I \"node_modules\")",
+      "Bash(npm run *)",
+      "Bash(npx prisma *)",
+      "Bash(timeout 5)",
+      "Bash(ping -n 5 127.0.0.1)"
+    ]
+  }
+}
