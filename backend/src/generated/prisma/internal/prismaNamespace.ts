@@ -385,7 +385,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Empresa: 'Empresa',
-  Alumno: 'Alumno'
+  Alumno: 'Alumno',
+  Practica: 'Practica'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -401,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "empresa" | "alumno"
+    modelProps: "empresa" | "alumno" | "practica"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -553,6 +554,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Practica: {
+      payload: Prisma.$PracticaPayload<ExtArgs>
+      fields: Prisma.PracticaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PracticaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PracticaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        findFirst: {
+          args: Prisma.PracticaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PracticaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        findMany: {
+          args: Prisma.PracticaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>[]
+        }
+        create: {
+          args: Prisma.PracticaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        createMany: {
+          args: Prisma.PracticaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PracticaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>[]
+        }
+        delete: {
+          args: Prisma.PracticaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        update: {
+          args: Prisma.PracticaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        deleteMany: {
+          args: Prisma.PracticaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PracticaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PracticaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>[]
+        }
+        upsert: {
+          args: Prisma.PracticaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PracticaPayload>
+        }
+        aggregate: {
+          args: Prisma.PracticaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePractica>
+        }
+        groupBy: {
+          args: Prisma.PracticaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PracticaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PracticaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PracticaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -615,6 +690,22 @@ export const AlumnoScalarFieldEnum = {
 } as const
 
 export type AlumnoScalarFieldEnum = (typeof AlumnoScalarFieldEnum)[keyof typeof AlumnoScalarFieldEnum]
+
+
+export const PracticaScalarFieldEnum = {
+  id: 'id',
+  titulo: 'titulo',
+  descripcion: 'descripcion',
+  fechaInicio: 'fechaInicio',
+  fechaFin: 'fechaFin',
+  estado: 'estado',
+  alumnoId: 'alumnoId',
+  empresaId: 'empresaId',
+  CreatedAt: 'CreatedAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PracticaScalarFieldEnum = (typeof PracticaScalarFieldEnum)[keyof typeof PracticaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -814,6 +905,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   empresa?: Prisma.EmpresaOmit
   alumno?: Prisma.AlumnoOmit
+  practica?: Prisma.PracticaOmit
 }
 
 /* Types for Logging */

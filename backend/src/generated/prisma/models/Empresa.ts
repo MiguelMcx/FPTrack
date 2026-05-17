@@ -232,6 +232,7 @@ export type EmpresaWhereInput = {
   email?: Prisma.StringNullableFilter<"Empresa"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Empresa"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Empresa"> | Date | string
+  practicas?: Prisma.PracticaListRelationFilter
 }
 
 export type EmpresaOrderByWithRelationInput = {
@@ -242,6 +243,7 @@ export type EmpresaOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  practicas?: Prisma.PracticaOrderByRelationAggregateInput
 }
 
 export type EmpresaWhereUniqueInput = Prisma.AtLeast<{
@@ -255,6 +257,7 @@ export type EmpresaWhereUniqueInput = Prisma.AtLeast<{
   telefono?: Prisma.StringNullableFilter<"Empresa"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Empresa"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Empresa"> | Date | string
+  practicas?: Prisma.PracticaListRelationFilter
 }, "id" | "email">
 
 export type EmpresaOrderByWithAggregationInput = {
@@ -292,6 +295,7 @@ export type EmpresaCreateInput = {
   email?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  practicas?: Prisma.PracticaCreateNestedManyWithoutEmpresaInput
 }
 
 export type EmpresaUncheckedCreateInput = {
@@ -302,6 +306,7 @@ export type EmpresaUncheckedCreateInput = {
   email?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  practicas?: Prisma.PracticaUncheckedCreateNestedManyWithoutEmpresaInput
 }
 
 export type EmpresaUpdateInput = {
@@ -311,6 +316,7 @@ export type EmpresaUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  practicas?: Prisma.PracticaUpdateManyWithoutEmpresaNestedInput
 }
 
 export type EmpresaUncheckedUpdateInput = {
@@ -321,6 +327,7 @@ export type EmpresaUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  practicas?: Prisma.PracticaUncheckedUpdateManyWithoutEmpresaNestedInput
 }
 
 export type EmpresaCreateManyInput = {
@@ -390,6 +397,11 @@ export type EmpresaSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
+export type EmpresaScalarRelationFilter = {
+  is?: Prisma.EmpresaWhereInput
+  isNot?: Prisma.EmpresaWhereInput
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -410,6 +422,103 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type EmpresaCreateNestedOneWithoutPracticasInput = {
+  create?: Prisma.XOR<Prisma.EmpresaCreateWithoutPracticasInput, Prisma.EmpresaUncheckedCreateWithoutPracticasInput>
+  connectOrCreate?: Prisma.EmpresaCreateOrConnectWithoutPracticasInput
+  connect?: Prisma.EmpresaWhereUniqueInput
+}
+
+export type EmpresaUpdateOneRequiredWithoutPracticasNestedInput = {
+  create?: Prisma.XOR<Prisma.EmpresaCreateWithoutPracticasInput, Prisma.EmpresaUncheckedCreateWithoutPracticasInput>
+  connectOrCreate?: Prisma.EmpresaCreateOrConnectWithoutPracticasInput
+  upsert?: Prisma.EmpresaUpsertWithoutPracticasInput
+  connect?: Prisma.EmpresaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EmpresaUpdateToOneWithWhereWithoutPracticasInput, Prisma.EmpresaUpdateWithoutPracticasInput>, Prisma.EmpresaUncheckedUpdateWithoutPracticasInput>
+}
+
+export type EmpresaCreateWithoutPracticasInput = {
+  nombre: string
+  direccion?: string | null
+  telefono?: string | null
+  email?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EmpresaUncheckedCreateWithoutPracticasInput = {
+  id?: number
+  nombre: string
+  direccion?: string | null
+  telefono?: string | null
+  email?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EmpresaCreateOrConnectWithoutPracticasInput = {
+  where: Prisma.EmpresaWhereUniqueInput
+  create: Prisma.XOR<Prisma.EmpresaCreateWithoutPracticasInput, Prisma.EmpresaUncheckedCreateWithoutPracticasInput>
+}
+
+export type EmpresaUpsertWithoutPracticasInput = {
+  update: Prisma.XOR<Prisma.EmpresaUpdateWithoutPracticasInput, Prisma.EmpresaUncheckedUpdateWithoutPracticasInput>
+  create: Prisma.XOR<Prisma.EmpresaCreateWithoutPracticasInput, Prisma.EmpresaUncheckedCreateWithoutPracticasInput>
+  where?: Prisma.EmpresaWhereInput
+}
+
+export type EmpresaUpdateToOneWithWhereWithoutPracticasInput = {
+  where?: Prisma.EmpresaWhereInput
+  data: Prisma.XOR<Prisma.EmpresaUpdateWithoutPracticasInput, Prisma.EmpresaUncheckedUpdateWithoutPracticasInput>
+}
+
+export type EmpresaUpdateWithoutPracticasInput = {
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EmpresaUncheckedUpdateWithoutPracticasInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type EmpresaCountOutputType
+ */
+
+export type EmpresaCountOutputType = {
+  practicas: number
+}
+
+export type EmpresaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  practicas?: boolean | EmpresaCountOutputTypeCountPracticasArgs
+}
+
+/**
+ * EmpresaCountOutputType without action
+ */
+export type EmpresaCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EmpresaCountOutputType
+   */
+  select?: Prisma.EmpresaCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * EmpresaCountOutputType without action
+ */
+export type EmpresaCountOutputTypeCountPracticasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PracticaWhereInput
+}
 
 
 export type EmpresaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -420,6 +529,8 @@ export type EmpresaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   email?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  practicas?: boolean | Prisma.Empresa$practicasArgs<ExtArgs>
+  _count?: boolean | Prisma.EmpresaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["empresa"]>
 
 export type EmpresaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -453,10 +564,18 @@ export type EmpresaSelectScalar = {
 }
 
 export type EmpresaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "direccion" | "telefono" | "email" | "createdAt" | "updatedAt", ExtArgs["result"]["empresa"]>
+export type EmpresaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  practicas?: boolean | Prisma.Empresa$practicasArgs<ExtArgs>
+  _count?: boolean | Prisma.EmpresaCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type EmpresaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type EmpresaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $EmpresaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Empresa"
-  objects: {}
+  objects: {
+    practicas: Prisma.$PracticaPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     nombre: string
@@ -859,6 +978,7 @@ readonly fields: EmpresaFieldRefs;
  */
 export interface Prisma__EmpresaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  practicas<T extends Prisma.Empresa$practicasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Empresa$practicasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PracticaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -912,6 +1032,10 @@ export type EmpresaFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * Filter, which Empresa to fetch.
    */
   where: Prisma.EmpresaWhereUniqueInput
@@ -930,6 +1054,10 @@ export type EmpresaFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * Filter, which Empresa to fetch.
    */
   where: Prisma.EmpresaWhereUniqueInput
@@ -947,6 +1075,10 @@ export type EmpresaFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Empresa
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
   /**
    * Filter, which Empresa to fetch.
    */
@@ -996,6 +1128,10 @@ export type EmpresaFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * Filter, which Empresa to fetch.
    */
   where?: Prisma.EmpresaWhereInput
@@ -1043,6 +1179,10 @@ export type EmpresaFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Empresa
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
   /**
    * Filter, which Empresas to fetch.
    */
@@ -1092,6 +1232,10 @@ export type EmpresaCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * The data needed to create a Empresa.
    */
   data: Prisma.XOR<Prisma.EmpresaCreateInput, Prisma.EmpresaUncheckedCreateInput>
@@ -1139,6 +1283,10 @@ export type EmpresaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Empresa
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
   /**
    * The data needed to update a Empresa.
    */
@@ -1206,6 +1354,10 @@ export type EmpresaUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * The filter to search for the Empresa to update in case it exists.
    */
   where: Prisma.EmpresaWhereUniqueInput
@@ -1232,6 +1384,10 @@ export type EmpresaDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
+  /**
    * Filter which Empresa to delete.
    */
   where: Prisma.EmpresaWhereUniqueInput
@@ -1252,6 +1408,30 @@ export type EmpresaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Empresa.practicas
+ */
+export type Empresa$practicasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Practica
+   */
+  select?: Prisma.PracticaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Practica
+   */
+  omit?: Prisma.PracticaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PracticaInclude<ExtArgs> | null
+  where?: Prisma.PracticaWhereInput
+  orderBy?: Prisma.PracticaOrderByWithRelationInput | Prisma.PracticaOrderByWithRelationInput[]
+  cursor?: Prisma.PracticaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PracticaScalarFieldEnum | Prisma.PracticaScalarFieldEnum[]
+}
+
+/**
  * Empresa without action
  */
 export type EmpresaDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1263,4 +1443,8 @@ export type EmpresaDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Empresa
    */
   omit?: Prisma.EmpresaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmpresaInclude<ExtArgs> | null
 }

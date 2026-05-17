@@ -19,6 +19,7 @@ model Empresa {
   email     String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  practicas Practica[]
 }
 
 model Alumno{
@@ -28,4 +29,21 @@ model Alumno{
   telefono String?
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  practicas Practica[]
 }
+
+model Practica {
+  id Int @id @default(autoincrement())
+  titulo String
+  descripcion String?
+  fechaInicio DateTime
+  fechaFin DateTime?
+  estado String @default("activa")
+  alumnoId Int
+  empresaId Int
+  alumno Alumno @relation(fields: [alumnoId], references: [id] )
+  empresa Empresa @relation(fields: [empresaId], references: [id] )
+  CreatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

@@ -10,4 +10,5 @@
  */
 export type * from './models/Empresa'
 export type * from './models/Alumno'
+export type * from './models/Practica'
 export type * from './commonInputTypes'

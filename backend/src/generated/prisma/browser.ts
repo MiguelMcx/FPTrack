@@ -27,3 +27,8 @@ export type Empresa = Prisma.EmpresaModel
  * 
  */
 export type Alumno = Prisma.AlumnoModel
+/**
+ * Model Practica
+ * 
+ */
+export type Practica = Prisma.PracticaModel
