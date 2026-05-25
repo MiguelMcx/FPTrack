@@ -32,3 +32,8 @@ export type Alumno = Prisma.AlumnoModel
  * 
  */
 export type Practica = Prisma.PracticaModel
+/**
+ * Model RegistroHoras
+ * 
+ */
+export type RegistroHoras = Prisma.RegistroHorasModel

@@ -45,5 +45,16 @@ model Practica {
   empresa Empresa @relation(fields: [empresaId], references: [id] )
   CreatedAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  registro RegistroHoras[]
 }
 
+model RegistroHoras{
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  horas Float
+  descripcion String?
+  practicaId Int
+  practica Practica @relation(fields: [practicaId], references: [id] )
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
