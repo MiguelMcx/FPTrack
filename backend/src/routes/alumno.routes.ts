@@ -6,13 +6,14 @@ import { deleteAlumno } from "../controllers/alumno.controller";
 import { updateAlumno } from "../controllers/alumno.controller";
 import { validateAlumno } from "../middlewares/alumno.middlewares";
 import { AlumnoSchema } from "../schema/alumno.schema";
+import { authMiddleware } from "../middlewares/auth.midllewares";
 
 const router = Router();
 
-router.get('/',getAlumnos)
-router.get('/:id',getAlumnoById)
-router.post('/', validateAlumno(AlumnoSchema), postAlumno)
-router.delete('/:id', deleteAlumno)
-router.put('/:id', validateAlumno(AlumnoSchema), updateAlumno)
+router.get('/',authMiddleware, getAlumnos)
+router.get('/:id',authMiddleware, getAlumnoById)
+router.post('/', authMiddleware, validateAlumno(AlumnoSchema), postAlumno)
+router.delete('/:id', authMiddleware, deleteAlumno)
+router.put('/:id', authMiddleware, validateAlumno(AlumnoSchema), updateAlumno)
 
 export default router;

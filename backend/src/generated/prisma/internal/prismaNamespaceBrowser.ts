@@ -54,7 +54,8 @@ export const ModelName = {
   Empresa: 'Empresa',
   Alumno: 'Alumno',
   Practica: 'Practica',
-  RegistroHoras: 'RegistroHoras'
+  RegistroHoras: 'RegistroHoras',
+  Usuario: 'Usuario'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -125,6 +126,19 @@ export const RegistroHorasScalarFieldEnum = {
 } as const
 
 export type RegistroHorasScalarFieldEnum = (typeof RegistroHorasScalarFieldEnum)[keyof typeof RegistroHorasScalarFieldEnum]
+
+
+export const UsuarioScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  email: 'email',
+  password: 'password',
+  rol: 'rol',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -37,3 +37,8 @@ export type Practica = Prisma.PracticaModel
  * 
  */
 export type RegistroHoras = Prisma.RegistroHorasModel
+/**
+ * Model Usuario
+ * 
+ */
+export type Usuario = Prisma.UsuarioModel
