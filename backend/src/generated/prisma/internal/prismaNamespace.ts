@@ -386,7 +386,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Empresa: 'Empresa',
   Alumno: 'Alumno',
-  Practica: 'Practica'
+  Practica: 'Practica',
+  RegistroHoras: 'RegistroHoras'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +403,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "empresa" | "alumno" | "practica"
+    modelProps: "empresa" | "alumno" | "practica" | "registroHoras"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -628,6 +629,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    RegistroHoras: {
+      payload: Prisma.$RegistroHorasPayload<ExtArgs>
+      fields: Prisma.RegistroHorasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RegistroHorasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RegistroHorasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        findFirst: {
+          args: Prisma.RegistroHorasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RegistroHorasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        findMany: {
+          args: Prisma.RegistroHorasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>[]
+        }
+        create: {
+          args: Prisma.RegistroHorasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        createMany: {
+          args: Prisma.RegistroHorasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RegistroHorasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>[]
+        }
+        delete: {
+          args: Prisma.RegistroHorasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        update: {
+          args: Prisma.RegistroHorasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        deleteMany: {
+          args: Prisma.RegistroHorasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RegistroHorasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RegistroHorasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>[]
+        }
+        upsert: {
+          args: Prisma.RegistroHorasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistroHorasPayload>
+        }
+        aggregate: {
+          args: Prisma.RegistroHorasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRegistroHoras>
+        }
+        groupBy: {
+          args: Prisma.RegistroHorasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegistroHorasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RegistroHorasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegistroHorasCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -706,6 +781,19 @@ export const PracticaScalarFieldEnum = {
 } as const
 
 export type PracticaScalarFieldEnum = (typeof PracticaScalarFieldEnum)[keyof typeof PracticaScalarFieldEnum]
+
+
+export const RegistroHorasScalarFieldEnum = {
+  id: 'id',
+  fecha: 'fecha',
+  horas: 'horas',
+  descripcion: 'descripcion',
+  practicaId: 'practicaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RegistroHorasScalarFieldEnum = (typeof RegistroHorasScalarFieldEnum)[keyof typeof RegistroHorasScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -906,6 +994,7 @@ export type GlobalOmitConfig = {
   empresa?: Prisma.EmpresaOmit
   alumno?: Prisma.AlumnoOmit
   practica?: Prisma.PracticaOmit
+  registroHoras?: Prisma.RegistroHorasOmit
 }
 
 /* Types for Logging */

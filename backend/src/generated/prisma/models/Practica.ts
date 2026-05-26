@@ -266,6 +266,7 @@ export type PracticaWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Practica"> | Date | string
   alumno?: Prisma.XOR<Prisma.AlumnoScalarRelationFilter, Prisma.AlumnoWhereInput>
   empresa?: Prisma.XOR<Prisma.EmpresaScalarRelationFilter, Prisma.EmpresaWhereInput>
+  registros?: Prisma.RegistroHorasListRelationFilter
 }
 
 export type PracticaOrderByWithRelationInput = {
@@ -281,6 +282,7 @@ export type PracticaOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   alumno?: Prisma.AlumnoOrderByWithRelationInput
   empresa?: Prisma.EmpresaOrderByWithRelationInput
+  registros?: Prisma.RegistroHorasOrderByRelationAggregateInput
 }
 
 export type PracticaWhereUniqueInput = Prisma.AtLeast<{
@@ -299,6 +301,7 @@ export type PracticaWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Practica"> | Date | string
   alumno?: Prisma.XOR<Prisma.AlumnoScalarRelationFilter, Prisma.AlumnoWhereInput>
   empresa?: Prisma.XOR<Prisma.EmpresaScalarRelationFilter, Prisma.EmpresaWhereInput>
+  registros?: Prisma.RegistroHorasListRelationFilter
 }, "id">
 
 export type PracticaOrderByWithAggregationInput = {
@@ -345,6 +348,7 @@ export type PracticaCreateInput = {
   updatedAt?: Date | string
   alumno: Prisma.AlumnoCreateNestedOneWithoutPracticasInput
   empresa: Prisma.EmpresaCreateNestedOneWithoutPracticasInput
+  registros?: Prisma.RegistroHorasCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaUncheckedCreateInput = {
@@ -358,6 +362,7 @@ export type PracticaUncheckedCreateInput = {
   empresaId: number
   CreatedAt?: Date | string
   updatedAt?: Date | string
+  registros?: Prisma.RegistroHorasUncheckedCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaUpdateInput = {
@@ -370,6 +375,7 @@ export type PracticaUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alumno?: Prisma.AlumnoUpdateOneRequiredWithoutPracticasNestedInput
   empresa?: Prisma.EmpresaUpdateOneRequiredWithoutPracticasNestedInput
+  registros?: Prisma.RegistroHorasUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaUncheckedUpdateInput = {
@@ -383,6 +389,7 @@ export type PracticaUncheckedUpdateInput = {
   empresaId?: Prisma.IntFieldUpdateOperationsInput | number
   CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registros?: Prisma.RegistroHorasUncheckedUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaCreateManyInput = {
@@ -482,6 +489,11 @@ export type PracticaSumOrderByAggregateInput = {
   empresaId?: Prisma.SortOrder
 }
 
+export type PracticaScalarRelationFilter = {
+  is?: Prisma.PracticaWhereInput
+  isNot?: Prisma.PracticaWhereInput
+}
+
 export type PracticaCreateNestedManyWithoutEmpresaInput = {
   create?: Prisma.XOR<Prisma.PracticaCreateWithoutEmpresaInput, Prisma.PracticaUncheckedCreateWithoutEmpresaInput> | Prisma.PracticaCreateWithoutEmpresaInput[] | Prisma.PracticaUncheckedCreateWithoutEmpresaInput[]
   connectOrCreate?: Prisma.PracticaCreateOrConnectWithoutEmpresaInput | Prisma.PracticaCreateOrConnectWithoutEmpresaInput[]
@@ -570,6 +582,20 @@ export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
+export type PracticaCreateNestedOneWithoutRegistrosInput = {
+  create?: Prisma.XOR<Prisma.PracticaCreateWithoutRegistrosInput, Prisma.PracticaUncheckedCreateWithoutRegistrosInput>
+  connectOrCreate?: Prisma.PracticaCreateOrConnectWithoutRegistrosInput
+  connect?: Prisma.PracticaWhereUniqueInput
+}
+
+export type PracticaUpdateOneRequiredWithoutRegistrosNestedInput = {
+  create?: Prisma.XOR<Prisma.PracticaCreateWithoutRegistrosInput, Prisma.PracticaUncheckedCreateWithoutRegistrosInput>
+  connectOrCreate?: Prisma.PracticaCreateOrConnectWithoutRegistrosInput
+  upsert?: Prisma.PracticaUpsertWithoutRegistrosInput
+  connect?: Prisma.PracticaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PracticaUpdateToOneWithWhereWithoutRegistrosInput, Prisma.PracticaUpdateWithoutRegistrosInput>, Prisma.PracticaUncheckedUpdateWithoutRegistrosInput>
+}
+
 export type PracticaCreateWithoutEmpresaInput = {
   titulo: string
   descripcion?: string | null
@@ -579,6 +605,7 @@ export type PracticaCreateWithoutEmpresaInput = {
   CreatedAt?: Date | string
   updatedAt?: Date | string
   alumno: Prisma.AlumnoCreateNestedOneWithoutPracticasInput
+  registros?: Prisma.RegistroHorasCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaUncheckedCreateWithoutEmpresaInput = {
@@ -591,6 +618,7 @@ export type PracticaUncheckedCreateWithoutEmpresaInput = {
   alumnoId: number
   CreatedAt?: Date | string
   updatedAt?: Date | string
+  registros?: Prisma.RegistroHorasUncheckedCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaCreateOrConnectWithoutEmpresaInput = {
@@ -644,6 +672,7 @@ export type PracticaCreateWithoutAlumnoInput = {
   CreatedAt?: Date | string
   updatedAt?: Date | string
   empresa: Prisma.EmpresaCreateNestedOneWithoutPracticasInput
+  registros?: Prisma.RegistroHorasCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaUncheckedCreateWithoutAlumnoInput = {
@@ -656,6 +685,7 @@ export type PracticaUncheckedCreateWithoutAlumnoInput = {
   empresaId: number
   CreatedAt?: Date | string
   updatedAt?: Date | string
+  registros?: Prisma.RegistroHorasUncheckedCreateNestedManyWithoutPracticaInput
 }
 
 export type PracticaCreateOrConnectWithoutAlumnoInput = {
@@ -684,6 +714,72 @@ export type PracticaUpdateManyWithWhereWithoutAlumnoInput = {
   data: Prisma.XOR<Prisma.PracticaUpdateManyMutationInput, Prisma.PracticaUncheckedUpdateManyWithoutAlumnoInput>
 }
 
+export type PracticaCreateWithoutRegistrosInput = {
+  titulo: string
+  descripcion?: string | null
+  fechaInicio: Date | string
+  fechaFin?: Date | string | null
+  estado?: string
+  CreatedAt?: Date | string
+  updatedAt?: Date | string
+  alumno: Prisma.AlumnoCreateNestedOneWithoutPracticasInput
+  empresa: Prisma.EmpresaCreateNestedOneWithoutPracticasInput
+}
+
+export type PracticaUncheckedCreateWithoutRegistrosInput = {
+  id?: number
+  titulo: string
+  descripcion?: string | null
+  fechaInicio: Date | string
+  fechaFin?: Date | string | null
+  estado?: string
+  alumnoId: number
+  empresaId: number
+  CreatedAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PracticaCreateOrConnectWithoutRegistrosInput = {
+  where: Prisma.PracticaWhereUniqueInput
+  create: Prisma.XOR<Prisma.PracticaCreateWithoutRegistrosInput, Prisma.PracticaUncheckedCreateWithoutRegistrosInput>
+}
+
+export type PracticaUpsertWithoutRegistrosInput = {
+  update: Prisma.XOR<Prisma.PracticaUpdateWithoutRegistrosInput, Prisma.PracticaUncheckedUpdateWithoutRegistrosInput>
+  create: Prisma.XOR<Prisma.PracticaCreateWithoutRegistrosInput, Prisma.PracticaUncheckedCreateWithoutRegistrosInput>
+  where?: Prisma.PracticaWhereInput
+}
+
+export type PracticaUpdateToOneWithWhereWithoutRegistrosInput = {
+  where?: Prisma.PracticaWhereInput
+  data: Prisma.XOR<Prisma.PracticaUpdateWithoutRegistrosInput, Prisma.PracticaUncheckedUpdateWithoutRegistrosInput>
+}
+
+export type PracticaUpdateWithoutRegistrosInput = {
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fechaInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fechaFin?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estado?: Prisma.StringFieldUpdateOperationsInput | string
+  CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  alumno?: Prisma.AlumnoUpdateOneRequiredWithoutPracticasNestedInput
+  empresa?: Prisma.EmpresaUpdateOneRequiredWithoutPracticasNestedInput
+}
+
+export type PracticaUncheckedUpdateWithoutRegistrosInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fechaInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fechaFin?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estado?: Prisma.StringFieldUpdateOperationsInput | string
+  alumnoId?: Prisma.IntFieldUpdateOperationsInput | number
+  empresaId?: Prisma.IntFieldUpdateOperationsInput | number
+  CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type PracticaCreateManyEmpresaInput = {
   id?: number
   titulo: string
@@ -705,6 +801,7 @@ export type PracticaUpdateWithoutEmpresaInput = {
   CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alumno?: Prisma.AlumnoUpdateOneRequiredWithoutPracticasNestedInput
+  registros?: Prisma.RegistroHorasUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaUncheckedUpdateWithoutEmpresaInput = {
@@ -717,6 +814,7 @@ export type PracticaUncheckedUpdateWithoutEmpresaInput = {
   alumnoId?: Prisma.IntFieldUpdateOperationsInput | number
   CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registros?: Prisma.RegistroHorasUncheckedUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaUncheckedUpdateManyWithoutEmpresaInput = {
@@ -752,6 +850,7 @@ export type PracticaUpdateWithoutAlumnoInput = {
   CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   empresa?: Prisma.EmpresaUpdateOneRequiredWithoutPracticasNestedInput
+  registros?: Prisma.RegistroHorasUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaUncheckedUpdateWithoutAlumnoInput = {
@@ -764,6 +863,7 @@ export type PracticaUncheckedUpdateWithoutAlumnoInput = {
   empresaId?: Prisma.IntFieldUpdateOperationsInput | number
   CreatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  registros?: Prisma.RegistroHorasUncheckedUpdateManyWithoutPracticaNestedInput
 }
 
 export type PracticaUncheckedUpdateManyWithoutAlumnoInput = {
@@ -779,6 +879,35 @@ export type PracticaUncheckedUpdateManyWithoutAlumnoInput = {
 }
 
 
+/**
+ * Count Type PracticaCountOutputType
+ */
+
+export type PracticaCountOutputType = {
+  registros: number
+}
+
+export type PracticaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  registros?: boolean | PracticaCountOutputTypeCountRegistrosArgs
+}
+
+/**
+ * PracticaCountOutputType without action
+ */
+export type PracticaCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PracticaCountOutputType
+   */
+  select?: Prisma.PracticaCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PracticaCountOutputType without action
+ */
+export type PracticaCountOutputTypeCountRegistrosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RegistroHorasWhereInput
+}
+
 
 export type PracticaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -793,6 +922,8 @@ export type PracticaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   updatedAt?: boolean
   alumno?: boolean | Prisma.AlumnoDefaultArgs<ExtArgs>
   empresa?: boolean | Prisma.EmpresaDefaultArgs<ExtArgs>
+  registros?: boolean | Prisma.Practica$registrosArgs<ExtArgs>
+  _count?: boolean | Prisma.PracticaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["practica"]>
 
 export type PracticaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -842,6 +973,8 @@ export type PracticaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type PracticaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   alumno?: boolean | Prisma.AlumnoDefaultArgs<ExtArgs>
   empresa?: boolean | Prisma.EmpresaDefaultArgs<ExtArgs>
+  registros?: boolean | Prisma.Practica$registrosArgs<ExtArgs>
+  _count?: boolean | Prisma.PracticaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PracticaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   alumno?: boolean | Prisma.AlumnoDefaultArgs<ExtArgs>
@@ -857,6 +990,7 @@ export type $PracticaPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   objects: {
     alumno: Prisma.$AlumnoPayload<ExtArgs>
     empresa: Prisma.$EmpresaPayload<ExtArgs>
+    registros: Prisma.$RegistroHorasPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1265,6 +1399,7 @@ export interface Prisma__PracticaClient<T, Null = never, ExtArgs extends runtime
   readonly [Symbol.toStringTag]: "PrismaPromise"
   alumno<T extends Prisma.AlumnoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AlumnoDefaultArgs<ExtArgs>>): Prisma.Prisma__AlumnoClient<runtime.Types.Result.GetResult<Prisma.$AlumnoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   empresa<T extends Prisma.EmpresaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EmpresaDefaultArgs<ExtArgs>>): Prisma.Prisma__EmpresaClient<runtime.Types.Result.GetResult<Prisma.$EmpresaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  registros<T extends Prisma.Practica$registrosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Practica$registrosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegistroHorasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1702,6 +1837,30 @@ export type PracticaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Limit how many Practicas to delete.
    */
   limit?: number
+}
+
+/**
+ * Practica.registros
+ */
+export type Practica$registrosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RegistroHoras
+   */
+  select?: Prisma.RegistroHorasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RegistroHoras
+   */
+  omit?: Prisma.RegistroHorasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RegistroHorasInclude<ExtArgs> | null
+  where?: Prisma.RegistroHorasWhereInput
+  orderBy?: Prisma.RegistroHorasOrderByWithRelationInput | Prisma.RegistroHorasOrderByWithRelationInput[]
+  cursor?: Prisma.RegistroHorasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RegistroHorasScalarFieldEnum | Prisma.RegistroHorasScalarFieldEnum[]
 }
 
 /**

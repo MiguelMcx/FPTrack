@@ -4,7 +4,7 @@ import { postAlumno } from "../controllers/alumno.controller";
 import { getAlumnoById } from "../controllers/alumno.controller";
 import { deleteAlumno } from "../controllers/alumno.controller";
 import { updateAlumno } from "../controllers/alumno.controller";
-import { validateAlumno } from "../middlewares/alumno.middleware";
+import { validateAlumno } from "../middlewares/alumno.middlewares";
 import { AlumnoSchema } from "../schema/alumno.schema";
 
 const router = Router();

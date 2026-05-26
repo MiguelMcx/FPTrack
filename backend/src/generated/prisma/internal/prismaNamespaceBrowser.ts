@@ -53,7 +53,8 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Empresa: 'Empresa',
   Alumno: 'Alumno',
-  Practica: 'Practica'
+  Practica: 'Practica',
+  RegistroHoras: 'RegistroHoras'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -111,6 +112,19 @@ export const PracticaScalarFieldEnum = {
 } as const
 
 export type PracticaScalarFieldEnum = (typeof PracticaScalarFieldEnum)[keyof typeof PracticaScalarFieldEnum]
+
+
+export const RegistroHorasScalarFieldEnum = {
+  id: 'id',
+  fecha: 'fecha',
+  horas: 'horas',
+  descripcion: 'descripcion',
+  practicaId: 'practicaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RegistroHorasScalarFieldEnum = (typeof RegistroHorasScalarFieldEnum)[keyof typeof RegistroHorasScalarFieldEnum]
 
 
 export const SortOrder = {

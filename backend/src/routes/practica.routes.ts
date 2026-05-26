@@ -1,13 +1,13 @@
-import router from "express";
+import { Router } from "express";
 import { getPracticas } from "../controllers/practica.controller";
 import { postPractica } from "../controllers/practica.controller";
 import { getPracticaById } from "../controllers/practica.controller";
 import { deletePractica } from "../controllers/practica.controller";
 import { updatePractica } from "../controllers/practica.controller";
-import { validatePractica } from "../middlewares/practica.middleware";
+import { validatePractica } from "../middlewares/practica.middlewares";
 import { PracticaSchema } from "../schema/practica.schema";
 
-const practicaRouter = router();
+const practicaRouter = Router();
 
 practicaRouter.get('/',getPracticas)
 practicaRouter.get('/:id',getPracticaById)
